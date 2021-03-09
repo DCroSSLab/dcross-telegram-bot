@@ -63,7 +63,7 @@ class Database:
                 },
                 "disaster": {
                     "type": disaster_type,
-                    "id": 123
+                    "id": associated_disaster
                 },
                 "time": datetime.now(),
                 "description": {

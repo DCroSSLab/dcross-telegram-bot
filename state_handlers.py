@@ -1,3 +1,4 @@
+from bson import ObjectId
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup
 from telegram.ext import CallbackContext, ConversationHandler
 import logging
@@ -152,7 +153,7 @@ def ask_disaster(update: Update, context: CallbackContext):
 # HANDLE_REPORT doesn't directly route to handle_report, see conversation_handler in conversation_handler.py
 
 
-def handle_report(update: Update, context: CallbackContext, disaster_type: str):
+def handle_report(update: Update, context: CallbackContext, disaster_type: str, associated_disaster: ObjectId = None):
     # We could use print, doesn't matter
     logger.info(msg="We are handling earthquakes")
     if update.callback_query:
@@ -169,7 +170,7 @@ def handle_report(update: Update, context: CallbackContext, disaster_type: str):
         context.user_data["reporter_id"] = db.create_reporter(user_id, phone_number, lang)
     reporter_id = context.user_data["reporter_id"]
     coordinates = context.user_data["coordinates"]
-    report_id = db.create_report(user_id, reporter_id, coordinates, disaster_type)
+    report_id = db.create_report(user_id, reporter_id, coordinates, disaster_type, associated_disaster)
     if report_id is False:
         context.bot.send_message(chat_id=user_id, text="Failed to file a report!")
     else:
@@ -184,6 +185,17 @@ def handle_report(update: Update, context: CallbackContext, disaster_type: str):
 
 def handle_earthquake_report(update: Update, context: CallbackContext):
     # do earthquake-specific stuff here. For e.g querying events.disasters for earthquakes near user
+    # For @Priya
+    # you will use mongodb find, so you will get a cursor object, like a list, you will have to iterate over it using
+    # for loop even if there is just one result.
+    # For the case, when there are multiple result you can also write a function that given a cursor object and
+    # a coordinate, returns the quake which is closest.
+
+    # associated_disaster = earthquake_near_user["_id"]
+    # handle_report will also take a associated_disaster argument (see line 156)
+    # You will get the _id of a disaster after making a geospatial query
+    # finally, you would do,
+    # handle_report(update, context, "earthquake", associated_disaster) instead of the next line
     handle_report(update, context, "earthquake")
     return DESCRIBE
 
