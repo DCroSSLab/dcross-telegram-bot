@@ -19,7 +19,9 @@ db = Database()
 
 def update_language(update: Update, context: CallbackContext):
     language_keyboard = [[InlineKeyboardButton("Hello", callback_data="lang_en-in")],
-                         [InlineKeyboardButton("नमस्ते", callback_data="lang_hi")]]
+                         [InlineKeyboardButton("नमस्ते", callback_data="lang_hi")],
+                         [InlineKeyboardButton("નમસ્તે", callback_data="lang_guj")],
+                         [InlineKeyboardButton("नमस्कार", callback_data="lang_mar")]]
     language_keyboard_markup = InlineKeyboardMarkup(language_keyboard)
     update.message.reply_text("Select a language", reply_markup=language_keyboard_markup)
     return UPDATE_LANG
@@ -55,7 +57,9 @@ def ask_language(update: Update, context: CallbackContext):
     context.user_data["lang"] = "en-in"
     context.user_data["is_new_user"] = True
     language_keyboard = [[InlineKeyboardButton("Hello", callback_data="lang_en-in")],
-                         [InlineKeyboardButton("नमस्ते", callback_data="lang_hi")]]
+                         [InlineKeyboardButton("नमस्ते", callback_data="lang_hi")],
+                         [InlineKeyboardButton("નમસ્તે", callback_data="lang_guj")],
+                         [InlineKeyboardButton("નમસ્તે", callback_data="lang_mar")]]
     language_keyboard_markup = InlineKeyboardMarkup(language_keyboard)
     update.message.reply_text("Select a language", reply_markup=language_keyboard_markup)
     return CHOICE_LANGUAGE
