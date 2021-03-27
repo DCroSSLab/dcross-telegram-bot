@@ -13,7 +13,8 @@ conversation_handler = ConversationHandler(
     entry_points=[
         CommandHandler('start', ask_language),
         MessageHandler(change_language_filters, update_language),
-        MessageHandler(Filters.text, ask_language)
+        MessageHandler(Filters.text, ask_language),
+        MessageHandler(Filters.photo, handle_images)
     ],
     states={
         CHOICE_LANGUAGE: [
@@ -41,6 +42,10 @@ conversation_handler = ConversationHandler(
         ],
         UPDATE_LANG: [
             CallbackQueryHandler(catch_update_language, pattern="^lang_(.*)")
+        ],
+        IMAGE: [
+            CallbackQueryHandler(skip_image, pattern="^no_image$"),
+            MessageHandler(Filters.photo, handle_images)
         ]
     },
     fallbacks=[

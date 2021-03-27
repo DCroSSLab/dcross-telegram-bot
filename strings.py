@@ -1,3 +1,5 @@
+# pending localization for three string resources
+# search "need localization" in state_handlers
 strings = {
     "en-in": {
         "start_report_button": "Report a disaster",
@@ -17,6 +19,8 @@ strings = {
         "description_error": "There was a problem while updating the description. Your report was still filed.",
         "thank_you": "Thank you for providing a detailed report!",
         "thank_you_no_description": "No problem!\nThanks for your time.",
+        "thank_you_more_information": "Thank you for adding more information to your report! If you want to share more"
+                                      " images, you can send them anytime.",
         "cancel_button": "Cancel",
         "language_updated_message": "Language was updated to English (India)"
     },
@@ -30,7 +34,7 @@ strings = {
         "ask_location_button": "अपना स्थान / लोकैशन शेयर करें ",
         "ask_location_message": "क्रिपिया नीचे वाला बटन दबाकर अपना स्थान / लोकैशन शेयर करें",
         "ask_description_message": "क्या आप स्थिति का वर्णन कर सकते हैं?\n"
-                                   "<i>मुझे स्थिति का वर्णन करने वाला एक संदेश भेजें या नहीं दबाएं</i>",
+                                   "<i>मुझे स्थिति का वर्णन करने वाला एक संदेश भेजें या \"नहीं\" बटन दबाएं</i>",
         "ask_description_no_button": "नहीं",
         "ask_disaster_message": "आप किस आपदा का सामना कर रहे हैं और रिपोर्ट करना चाहते हैं?",
         "disaster_earthquake": "भूकंप",
@@ -38,11 +42,13 @@ strings = {
         "description_error": "विवरण अपडेट करते समय एक समस्या होगई । आपकी रिपोर्ट फिर भी दर्ज की गई है ।",
         "thank_you": "एक विस्तृत रिपोर्ट प्रदान करने के लिए धन्यवाद!",
         "thank_you_no_description": "कोई बात नहीं!\nआपके समय के लिए धन्यवाद।",
+        "thank_you_more_information": "अपनी रिपोर्ट में और जानकारी जोड़ने के लिए धन्यवाद! यदि आप अधिक फ़ोटो साझा करना "
+                                      "चाहते हैं, तो आप उन्हें कभी भी भेज सकते हैं।",
         "cancel_button": "रद्द करें",
         "language_updated_message": "भाषा हिन्दी में बदल दी गई है।"
     },
-    "guj" : {
-       "start_report_button": "આપત્તિની જાણ કરો",
+    "guj": {
+        "start_report_button": "આપત્તિની જાણ કરો",
         "start_webapp_button": "DCroSS વેબ એપ્લિકેશનની મુલાકાત લો",
         "greet_new": "નમસ્તે! તમે DCross બોટ પર પહોંચી ગયા છો! \n હું આપત્તિઓની જાણ કરવામાં તમારી સહાય કરી શકું છું.",
         "greet": "નમસ્તે!",
@@ -59,8 +65,10 @@ strings = {
         "description_error": "વર્ણનને અપડેટ કરતી વખતે એક સમસ્યા આવી. તમારો અહેવાલ હજી દાખલ કરાયો હતો.",
         "thank_you": "વિગતવાર અહેવાલ પ્રદાન કરવા બદલ આભાર!",
         "thank_you_no_description": "કોઈ સમસ્યા નથી! \nતમારા સમયનો આભાર.",
+        "thank_you_more_information": "તમારા અહેવાલમાં વધુ માહિતી ઉમેરવા બદલ આભાર! જો તમે વધુ ફોટા શેર કરવા માંગતા "
+                                      "હો, તો તમે તેમને કોઈપણ સમયે મોકલી શકો છો.",
         "cancel_button": "રદ કરો",
-        "language_updated_message": "ગુજરાતીમાં ભાષા અપડેટ કરવામાં આવી" 
+        "language_updated_message": "ગુજરાતીમાં ભાષા અપડેટ કરવામાં આવી"
     },
     "mar": {
         "start_report_button": "आपत्तीचा अहवाल द्या",
@@ -80,9 +88,11 @@ strings = {
         "description_error": "वर्णन अद्यतनित करताना समस्या आली. आपला अहवाल अद्याप दाखल केला होता.",
         "thank_you": "तपशीलवार अहवाल दिल्याबद्दल धन्यवाद!",
         "thank_you_no_description": "हरकत नाही!\nआपल्या वेळेबद्दल धन्यवाद.",
+        "thank_you_more_information": "आपल्या रिपोर्ट अधिक माहिती जोडल्याबद्दल धन्यवाद! आपण अधिक फोटो सामायिक करू "
+                                      "इच्छित असल्यास आपण त्यांना कधीही पाठवू शकता.",
         "cancel_button": "रद्द करा",
         "language_updated_message": "भाषा मराठीत अद्यतनित केली गेली"
-    } 
+    }
 }
 
 

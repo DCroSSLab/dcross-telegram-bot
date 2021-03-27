@@ -1,15 +1,14 @@
 import logging
-from telegram.ext import Updater, MessageHandler, Filters
+from telegram.ext import Updater
 from conversation_handler import conversation_handler
 from config_vars import bot_token
-from state_handlers import ask_language
 
 
 def main():
     updater = Updater(bot_token, use_context=True)
     dispatcher = updater.dispatcher
     dispatcher.add_handler(conversation_handler)
-    # dispatcher.add_handler(MessageHandler(Filters.text, ask_language))
+    # dispatcher.add_handler(MessageHandler(Filters.photo, handle_images))
 
     def error(update, context):
         logger.warning('Update "%s" caused error "%s"', update, context.error)

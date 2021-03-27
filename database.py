@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from bson import ObjectId
 from pymongo import MongoClient
@@ -10,6 +10,7 @@ class Database:
         client = MongoClient(mongo_uri)
         # self.connection = client
         self.events = client.events
+        self.test_events = client.dcross_test.earthquakes
         self.users = client.users
         self.reports = client.reports
 
@@ -89,9 +90,22 @@ class Database:
 
     def update_report(self, report_id, updates):
         reports = self.reports
-        update_result = reports.telegram.update_one({"_id": report_id}, {"$set": updates})
+        update_result = reports.telegram.update_one({"_id": report_id}, updates)
         if update_result:
             return True
         else:
             return False
 
+    def get_recent_report(self, reporter_id):
+        # Get a day recent report
+        reports = self.reports
+        time = datetime.now() - timedelta(days=1)
+        result = reports.telegram.find({"$and": [{"properties.time": {"$gte": time}},
+                                                 {"properties.reporter_id": reporter_id}]})\
+            .sort([("properties.time", -1)])\
+            .limit(1)
+        if result:
+            for item in result:
+                return item
+        else:
+            return None
