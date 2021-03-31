@@ -1,7 +1,7 @@
 """
 Project Name: 	DCroSS
 Author List: 	Priya Pathak, Faraaz Biyabani
-Filename: 		bot.py
+Filename: 		state_handlers.py
 Description: 	Has functions that usually take an update and a CallbackContext type arguments,
                 these functions define what happens in a particular conversation state.
 """
