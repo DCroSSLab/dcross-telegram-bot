@@ -1,6 +1,12 @@
-from datetime import datetime, timedelta
+"""
+Project Name: 	DCroSS
+Author List: 	Priya Pathak, Faraaz Biyabani
+Filename: 		database.py
+Description: 	Database functions
+"""
 
-from bson import ObjectId
+
+from datetime import datetime, timedelta
 from pymongo import MongoClient
 from config_vars import mongo_uri
 
@@ -46,8 +52,8 @@ class Database:
         insert_result = users.reporters.insert_one(user)
         return insert_result.inserted_id
 
-    def create_report(self, telegram_user_id, reporter_id, coordinates, disaster_type, associated_disaster=None,
-                      description=None):
+    def create_report(self, telegram_user_id, reporter_id, reporter_contact, coordinates, disaster_type,
+                      associated_disaster=None, description=None):
         reports = self.reports
         report = {
             "type": "Feature",
@@ -60,7 +66,8 @@ class Database:
                 "source": {
                     "platform": "Telegram",
                     "user_id": telegram_user_id,
-                    "bot_id": 1656561641
+                    "bot_id": 1656561641,
+                    "phone_number": reporter_contact
                 },
                 "disaster": {
                     "type": disaster_type,
@@ -68,7 +75,7 @@ class Database:
                 },
                 "time": datetime.now(),
                 "description": {
-                    "text": None,
+                    "text": description,
                     "images": []
                 },
                 "is_spam": False,

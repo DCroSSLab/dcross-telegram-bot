@@ -1,3 +1,11 @@
+"""
+Project Name: 	DCroSS
+Author List: 	Priya Pathak, Faraaz Biyabani, Saumyaranjan Parida
+Filename: 		strings.py
+Description: 	String recources and a "locale" utility function
+"""
+
+
 # pending localization for three string resources
 # search "need localization" in state_handlers
 strings = {

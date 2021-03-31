@@ -1,5 +1,16 @@
-from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
+"""
+Project Name: 	DCroSS
+Author List: 	Priya Pathak
+Filename: 		conversation_handler.py
+Description: 	The conversation_handler decides the flow of the conversation
+                It uses ptb's ConversationHandler to define states, entry points, and a fallback.
+                All the states and the methods associated with them return an integer to the
+                conversation handler which then uses it to determine the next state to go to and then calls
+                the functions associated with the next state.
+"""
 
+
+from telegram.ext import CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from state_handlers import *
 
 # Conversation states
